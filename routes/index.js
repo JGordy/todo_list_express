@@ -17,25 +17,15 @@ router.post("/list", function(req, res) {
 // and another post request
 router.post("/list/:id", function(req, res) {
 console.log(todos);
-  let task= req.body.task
-  todos.filter(function( obj ) {
-    return obj.task !== task;
-  });
-
+  let todo = todos.find( function(todo) {
+    return todo.id == req.params.id;
+  })
+  let index = todos.indexOf(todo);
+  todos.splice(index, 1)
   done.push(req.body.task)
   res.redirect("/");
+
   console.log(done);
 });
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;
