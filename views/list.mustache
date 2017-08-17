@@ -1,0 +1,14 @@
+{{#todos}}
+<div class="notDone">
+  <form id="{{id}}" action="/list/:id" method="post">
+    <button type="submit" name="task" value="{{task}}">Mark complete</button>
+    <label for="">{{task}}</label>
+  </form>
+</div>
+{{/todos}}
+<h3>Completed todos</h3>
+{{#done}}
+<div class="Done">
+    <del><label>{{.}}</label></del>
+</div>
+{{/done}}
